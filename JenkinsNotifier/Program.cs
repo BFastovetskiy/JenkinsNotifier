@@ -60,10 +60,16 @@ namespace JenkinsNotifier
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(telegramURI);
             request.Method = "GET";
             request.Accept = "application/json";
+            request.GetResponse();
+            //
+            //TODO It is necessary to add job logging
+            //
+            /*
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
             StringBuilder output = new StringBuilder();
             WriteInfoMessage(reader.ReadToEnd());
+            */
             return 0;
         }
 
